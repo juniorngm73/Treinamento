@@ -1,1 +1,1 @@
-# Treinamento
+# Exercícios para Treinamento Python
