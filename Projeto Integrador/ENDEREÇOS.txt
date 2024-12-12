@@ -1,0 +1,80 @@
+https://randomnerdtutorials.com/ttgo-lora32-sx1276-arduino-ide/
+
+https://elcereza.com/modulo-lorawan-da-radioenge-tutorial-completo/
+
+https://blog.eletrogate.com/gps-neo-6m-com-arduino-aprenda-usar/
+
+# CÓDIGO TRANSMISSOR
+#include <SPI.h>
+#include <LoRa.h>
+
+int counter = 0;
+
+void setup() {
+  Serial.begin(9600);
+
+  while (!Serial);
+  Serial.println("Transmissor LoRa");
+  if (!LoRa.begin(915E6)) {
+    Serial.println("Falha em iniciar o LoRa!");
+    while (1);
+  }
+}
+
+void loop() {
+  counter++;
+  LoRa.beginPacket();
+  LoRa.print(counter);
+  LoRa.endPacket();
+  delay(1000);
+
+}
+ 
+
+
+
+# CÓDIGO RECEPTOR
+#include <SPI.h>
+#include <LoRa.h>
+
+String inString = "";
+int dadoRecebido = 0;
+int valorRssi = 0;
+/*
+  Received Signal Strenght Indication
+  RSSI=-30dBm: sinal forte.
+  RSSI=-120dBm: sinal fraco.
+*/
+
+void setup() {
+  Serial.begin(9600);
+
+  while (!Serial);
+  Serial.println("Transmissor LoRa");
+  if (!LoRa.begin(915E6)) {
+    Serial.println("Falha em iniciar o LoRa!");
+    while (1);
+  }
+}
+
+void loop() {
+  
+  // Tenta receber pacote de dados
+  int packetSize = LoRa.parsePacket();
+  if (packetSize) {
+    // Lê pacote
+    while (LoRa.available())
+    {
+      int inChar = LoRa.read();
+      inString += (char)inChar;
+      dadoRecebido = inString.toInt(); // Convert para int
+    }
+    inString = "";
+    valorRssi = LoRa.packetRssi();
+  }
+  Serial.print("Dado Recebido: ");
+  Serial.print(dadoRecebido); // Imprime na Serial o valor recebido
+  Serial.print("; Sinal: ");
+  Serial.print(valorRssi); // Imprime na serial a intensidade do sinal
+  delay(100);
+}
