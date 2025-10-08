@@ -8,8 +8,6 @@ for i, ip1_int in enumerate (ip1_int):
     pot = 3 - i
     ip10 = ip10 + int(ip1_int)* (256 ** pot)
 ip10b = (f'{ip10:032b}')
-print('IP 1 Bin: ', (ip10b))
-
 
 ip2_int = ip2.split('.')
 ip20 = 0
@@ -18,13 +16,9 @@ for i, ip2_int in enumerate (ip2_int):
     ip20 = ip20 + int(ip2_int)* (256 ** pot)
 ip20b = (f'{ip20:032b}')
 
-print('IP 2 Bin: ', (ip20b))
-
-
 bitsHost = 32 - mask
 mask10 = ((2**32) - 1) - ((2**bitsHost) - 1)
 host_mask = (2**bitsHost) - 1
-
 net1 = ip10 & mask10
 net2 = ip20 & mask10
 gw1 = net1 | 1
@@ -37,36 +31,23 @@ gw1b = f'{gw1:032b}'
 gw2b = f'{gw2:032b}'
 bc1b = f'{bcast1:032b}'
 bc2b = f'{bcast2:032b}'
-
-print (f'Net1 Bin: {net1b}')
-print (f'Net2 Bin: {net2b}')
-print (f'Gw 1 Bin: {gw1b}')
-print (f'Gw 2 Bin: {gw2b}')
-print (f'Bcast 1 Bin : {bc1b}')
-print (f'Bcast 2 Bin : {bc2b}')
-
+print("*" * 60)
 if net1 == net2:
-    print ("Mesma Rede!!")
+    print (" " * 20 + "Mesma Rede!!!")
 else:
-    print ("Redes Diferentes!!")
+    print (" " * 20 + "Redes Diferentes!!!")
 
 
 
-ip_binario = bc2b
-
+ip1_binario = ip10b
 # 1. Fatiar a string binária em 4 octetos (grupos de 8 bits)
-
-octeto_1 = ip_binario[0:8]     # 11000000
-octeto_2 = ip_binario[8:16]    # 10101000
-octeto_3 = ip_binario[16:24]   # 00001010
-octeto_4 = ip_binario[24:32]   # 00001100
+octeto_1 = ip1_binario[0:8]     # 11000000
+octeto_2 = ip1_binario[8:16]    # 10101000
+octeto_3 = ip1_binario[16:24]   # 00001010
+octeto_4 = ip1_binario[24:32]   # 00001100
 
 # 2. Juntar os octetos com um ponto ('.')
-ip_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
-
-print(f"IP Binário Formatado: {ip_binario_formatado}")
-
-# Continuando do código anterior...
+ip1_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
 
 # Conversão de Binário para Decimal
 decimal_1 = int(octeto_1, 2)
@@ -75,6 +56,166 @@ decimal_3 = int(octeto_3, 2)
 decimal_4 = int(octeto_4, 2)
 
 # Juntar os valores decimais com um ponto ('.')
-ip_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
+ip1_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
 
-print(f"IP Decimal: {ip_decimal}")
+
+ip2_binario = ip20b
+# 1. Fatiar a string binária em 4 octetos (grupos de 8 bits)
+octeto_1 = ip2_binario[0:8]     # 11000000
+octeto_2 = ip2_binario[8:16]    # 10101000
+octeto_3 = ip2_binario[16:24]   # 00001010
+octeto_4 = ip2_binario[24:32]   # 00001100
+
+# 2. Juntar os octetos com um ponto ('.')
+ip2_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
+
+# Conversão de Binário para Decimal
+decimal_1 = int(octeto_1, 2)
+decimal_2 = int(octeto_2, 2)
+decimal_3 = int(octeto_3, 2)
+decimal_4 = int(octeto_4, 2)
+
+# Juntar os valores decimais com um ponto ('.')
+ip2_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
+
+
+net1_binario = net1b
+# 1. Fatiar a string binária em 4 octetos (grupos de 8 bits)
+octeto_1 = net1_binario[0:8]     # 11000000
+octeto_2 = net1_binario[8:16]    # 10101000
+octeto_3 = net1_binario[16:24]   # 00001010
+octeto_4 = net1_binario[24:32]   # 00001100
+
+# 2. Juntar os octetos com um ponto ('.')
+net1_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
+
+# Conversão de Binário para Decimal
+decimal_1 = int(octeto_1, 2)
+decimal_2 = int(octeto_2, 2)
+decimal_3 = int(octeto_3, 2)
+decimal_4 = int(octeto_4, 2)
+
+# Juntar os valores decimais com um ponto ('.')
+net1_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
+
+
+net2_binario = net2b
+# 1. Fatiar a string binária em 4 octetos (grupos de 8 bits)
+octeto_1 = net2_binario[0:8]     # 11000000
+octeto_2 = net2_binario[8:16]    # 10101000
+octeto_3 = net2_binario[16:24]   # 00001010
+octeto_4 = net2_binario[24:32]   # 00001100
+
+# 2. Juntar os octetos com um ponto ('.')
+net2_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
+
+# Conversão de Binário para Decimal
+decimal_1 = int(octeto_1, 2)
+decimal_2 = int(octeto_2, 2)
+decimal_3 = int(octeto_3, 2)
+decimal_4 = int(octeto_4, 2)
+
+# Juntar os valores decimais com um ponto ('.')
+net2_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
+
+
+gw1_binario = gw1b
+# 1. Fatiar a string binária em 4 octetos (grupos de 8 bits)
+octeto_1 = gw1_binario[0:8]     # 11000000
+octeto_2 = gw1_binario[8:16]    # 10101000
+octeto_3 = gw1_binario[16:24]   # 00001010
+octeto_4 = gw1_binario[24:32]   # 00001100
+
+# 2. Juntar os octetos com um ponto ('.')
+gw1_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
+
+# Conversão de Binário para Decimal
+decimal_1 = int(octeto_1, 2)
+decimal_2 = int(octeto_2, 2)
+decimal_3 = int(octeto_3, 2)
+decimal_4 = int(octeto_4, 2)
+
+# Juntar os valores decimais com um ponto ('.')
+gw1_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
+
+
+gw2_binario = gw2b
+# 1. Fatiar a string binária em 4 octetos (grupos de 8 bits)
+octeto_1 = gw2_binario[0:8]     # 11000000
+octeto_2 = gw2_binario[8:16]    # 10101000
+octeto_3 = gw2_binario[16:24]   # 00001010
+octeto_4 = gw2_binario[24:32]   # 00001100
+
+# 2. Juntar os octetos com um ponto ('.')
+gw2_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
+
+# Conversão de Binário para Decimal
+decimal_1 = int(octeto_1, 2)
+decimal_2 = int(octeto_2, 2)
+decimal_3 = int(octeto_3, 2)
+decimal_4 = int(octeto_4, 2)
+
+# Juntar os valores decimais com um ponto ('.')
+gw2_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
+
+
+bc1_binario = bc1b
+# 1. Fatiar a string binária em 4 octetos (grupos de 8 bits)
+octeto_1 = bc1_binario[0:8]     # 11000000
+octeto_2 = bc1_binario[8:16]    # 10101000
+octeto_3 = bc1_binario[16:24]   # 00001010
+octeto_4 = bc1_binario[24:32]   # 00001100
+
+# 2. Juntar os octetos com um ponto ('.')
+bc1_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
+
+# Conversão de Binário para Decimal
+decimal_1 = int(octeto_1, 2)
+decimal_2 = int(octeto_2, 2)
+decimal_3 = int(octeto_3, 2)
+decimal_4 = int(octeto_4, 2)
+
+# Juntar os valores decimais com um ponto ('.')
+bc1_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
+
+
+bc2_binario = bc2b
+# 1. Fatiar a string binária em 4 octetos (grupos de 8 bits)
+octeto_1 = bc2_binario[0:8]     # 11000000
+octeto_2 = bc2_binario[8:16]    # 10101000
+octeto_3 = bc2_binario[16:24]   # 00001010
+octeto_4 = bc2_binario[24:32]   # 00001100
+
+# 2. Juntar os octetos com um ponto ('.')
+bc2_binario_formatado = f"{octeto_1}.{octeto_2}.{octeto_3}.{octeto_4}"
+
+# Conversão de Binário para Decimal
+decimal_1 = int(octeto_1, 2)
+decimal_2 = int(octeto_2, 2)
+decimal_3 = int(octeto_3, 2)
+decimal_4 = int(octeto_4, 2)
+
+# Juntar os valores decimais com um ponto ('.')
+bc2_decimal = f"{decimal_1}.{decimal_2}.{decimal_3}.{decimal_4}"
+
+print("*" * 60)
+print('Primeiro IP:')
+print(f"IP1  Octetos Binário: {ip1_binario_formatado}")
+print(f"IP1  Octetos Decimal: {ip1_decimal}")
+print(f"Net1 Octetos Binário: {net1_binario_formatado}")
+print(f"Net1 Octetos Decimal: {net1_decimal}")
+print(f"Gw_1 Octetos Binário: {gw1_binario_formatado}")
+print(f"Gw_1 Octetos Decimal: {gw1_decimal}")
+print(f"BC_1 Octetos Binário: {bc1_binario_formatado}")
+print(f"BC_1 Octetos Decimal: {bc1_decimal}")
+print("*" * 60)
+print('Segundo IP:')
+print(f"IP2  Octetos Binário: {ip2_binario_formatado}")
+print(f"IP2  Octetos Decimal: {ip2_decimal}")
+print(f"Net2 Octetos Binário: {net2_binario_formatado}")
+print(f"Net2 Octetos Decimal: {net2_decimal}")
+print(f"Gw_2 Octetos Binário: {gw2_binario_formatado}")
+print(f"Gw_2 Octetos Decimal: {gw2_decimal}")
+print(f"BC_2 Octetos Binário: {bc2_binario_formatado}")
+print(f"BC_2 Octetos Decimal: {bc2_decimal}")
+print("*" * 60)
