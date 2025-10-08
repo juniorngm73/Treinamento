@@ -1,4 +1,4 @@
-def validar_ip(entrada):  # Nome da função é 'validar_ip' e o parâmetro é 'entrada'
+def validar_ip(entrada):  # Função 'validar_ip' ; Parâmetro 'entrada'
     """
     Lê um IP do usuário, repetindo a solicitação (entrada) até que
     o IP seja válido (formato IPv4: quatro octetos entre 0 e 255).
