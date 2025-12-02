@@ -1,0 +1,20 @@
+; BIND data file for provedor.asa.br
+;
+$TTL	604800
+@	IN	SOA	ns.provedor.asa.br. admin.provedor.asa.br. (
+001     	; Serial 
+604800		; Refresh 
+86400		; Retry 
+2419200		; Expire 
+604800 )	; Negative Cache TTL 
+;
+; Registros de Servidor de Nomes (NS) e A
+@	IN	NS	ns.provedor.asa.br.
+ns	IN	A	127.0.0.1
+
+; Registros dos Hosts
+@	    IN	A	127.0.0.1
+proxy	IN	A	127.0.0.1
+www	    IN	A	127.0.0.1
+mail	IN	A	127.0.0.1
+isp     IN	CNAME	www
