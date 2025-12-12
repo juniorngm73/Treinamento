@@ -1,0 +1,6 @@
+git fetch origin
+git checkout 6-servidor-dns
+
+
+git fetch origin
+git checkout 9-proxy-reverso-isp
